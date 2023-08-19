@@ -1,0 +1,12 @@
+print ("Dryopithecus:")
+a = input()
+print ("Australopithecus:")
+b = input()
+print ("Homo habilis:")
+c = input()
+print ("Homo erectus:")
+d = input()
+print ("Homo sapiens:")
+x = input()
+
+print (a, b, c, d, x, sep = '=>')
