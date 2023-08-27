@@ -6,11 +6,30 @@
 # В следующие N строк вводится по одному числу Ai (1 ≤ Ai ≤ m) - вес каждого путешественника. 
 # Программа должна вывести одно число - минимальное количество лодок, необходимое для переправки всех рыбаков на противоположный берег.
 
+# 8.3 - Доработать. Неправильный подсчет количества лодок.
+
+   
+
 m = int(input()) 
 n = int(input()) 
-c = []
+c = [] 
+b = []  
 
-for i in range(n):
-    c.append(int(input()))   
-
-print((2 * min(c) <= m) + len([x for x in c if x + min(c) > m]))
+if  (m >= 1 and m <= 1000000) and (n >= 1 and n <= 100):
+    for i in range(n):  
+        c.append(int(input()))
+ 
+    for x in range(len(c)):
+        if c[x] + min(c) <= m:
+            b += [[c[x], min(c)]]
+            c[x] += m
+            c[c.index(min(c))] += m
+        else:
+            if c[x] > m:
+                continue
+            else:
+                b += [[c[x]]]
+    print(len(b))
+else:
+    print("Error")
+    
